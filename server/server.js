@@ -13,6 +13,7 @@ require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+const mongoURI = process.env.LOCAL_MONGO_URI || process.env.CLOUD_MONGO_URI
 
 
 
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 
 // // MongoDB Connection
-mongoose.connect(process.env.LOCAL_MONGO_URI, {
+mongoose.connect(mongoURI, {
   
 })
 .then(() => console.log("MongoDB connected"))
